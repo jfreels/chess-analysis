@@ -15,4 +15,3 @@ INSERT INTO chess.games_moves (
     'e3f3',
     '{"type": "cp", "value": 158}'
 )
-;

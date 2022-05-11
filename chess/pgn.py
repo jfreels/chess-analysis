@@ -29,13 +29,14 @@ def remove_turns_from_moves(moves_string:str) -> str:
 class Pgn:
     def __init__(self, pgn:str):
         self.pgn = pgn
-        self.converted_pgn = self.pgn.splitlines()
         self.moves = self.create_moves_list()
+        self.fen = PgnToFen()
         self.fen_positions = self.create_fen_positions()
         # self.evaluations = self.create_evaluations()
 
     def create_moves_list(self) -> List[str]:
-        moves_string = self.converted_pgn[-1]
+        converted_pgn = self.pgn.splitlines()
+        moves_string = converted_pgn[-1]
         moves_string = remove_clock_times_from_moves(moves_string)
         moves_string = remove_turns_from_moves(moves_string)
         moves = moves_string.split()
@@ -43,9 +44,6 @@ class Pgn:
         return moves
 
     def create_fen_positions(self) -> List[str]:
-        pgn_converter = PgnToFen()
-        fen_positions = []
         for move in self.moves:
-            pgn_converter.move(move)
-            fen_positions.append(pgn_converter.getFullFen())
-        return fen_positions
+            self.fen.move(move)
+

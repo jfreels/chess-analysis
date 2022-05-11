@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS chess.games_moves (
     stockfish_evaluation json,
     best_move varchar,
     stockfish_evaluation_best_move json
-);
+)

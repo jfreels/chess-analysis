@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS chess.games (
     rules varchar,
     white json,
     black json
-);
+)

@@ -7,4 +7,3 @@ INSERT INTO chess.games_moves (
     best_move,
     stockfish_evaluation_best_move
 ) VALUES {{ sql_values }}
-;

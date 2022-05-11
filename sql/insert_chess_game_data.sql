@@ -13,4 +13,3 @@ INSERT INTO chess.games (
     white,
     black
 ) VALUES {{ sql_values }}
-;
