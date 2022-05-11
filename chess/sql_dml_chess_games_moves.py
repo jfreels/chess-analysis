@@ -7,16 +7,19 @@ import glob
 import json
 
 from jinja2 import Template
+from dotenv import dotenv_values
 
 from pgn import Pgn
 from stockfish_analysis import StockfishAnalysis
 
 
-DATABASE_URL="localhost"
-DATABASE_PORT=5432
-DATABASE_USER="admin"
-DATABASE_PASSWORD="JZNjCXF#s6SEUf"
-DATABASE_DB="analytics"
+CONFIG = dotenv_values(".env")
+
+DATABASE_URL = CONFIG["DATABASE_URL"]
+DATABASE_PORT = CONFIG["DATABASE_PORT"]
+DATABASE_USER = CONFIG["DATABASE_USER"]
+DATABASE_PASSWORD = CONFIG["DATABASE_PASSWORD"]
+DATABASE_DB = CONFIG["DATABASE_NAME"]
 
 SQL_DML_CHESS_GAMES_MOVES = "sql/insert_chess_game_moves_data.sql"
 

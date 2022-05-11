@@ -4,12 +4,15 @@ Write chess game data to PostgreSQL
 import sys
 import psycopg2
 
+from dotenv import dotenv_values
 
-DATABASE_URL="localhost"
-DATABASE_PORT=5432
-DATABASE_USER="admin"
-DATABASE_PASSWORD="JZNjCXF#s6SEUf"
-DATABASE_DB="analytics"
+CONFIG = dotenv_values(".env")
+
+DATABASE_URL = CONFIG["DATABASE_URL"]
+DATABASE_PORT = CONFIG["DATABASE_PORT"]
+DATABASE_USER = CONFIG["DATABASE_USER"]
+DATABASE_PASSWORD = CONFIG["DATABASE_PASSWORD"]
+DATABASE_DB = CONFIG["DATABASE_NAME"]
 
 
 SQL_SCRIPTS = [

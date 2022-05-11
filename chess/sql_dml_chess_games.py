@@ -7,13 +7,15 @@ import glob
 import json
 
 from jinja2 import Template
+from dotenv import dotenv_values
 
+CONFIG = dotenv_values(".env")
 
-DATABASE_URL="localhost"
-DATABASE_PORT=5432
-DATABASE_USER="admin"
-DATABASE_PASSWORD="JZNjCXF#s6SEUf"
-DATABASE_DB="analytics"
+DATABASE_URL=config["DATABASE_URL"]
+DATABASE_PORT=config["DATABASE_PORT"]
+DATABASE_USER=config["DATABASE_USER"]
+DATABASE_PASSWORD=config["DATABASE_PASSWORD"]
+DATABASE_DB=config["DATABASE_NAME"]
 
 SQL_DML_CHESS_GAME = "sql/insert_chess_game_data.sql"
 
