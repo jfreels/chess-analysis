@@ -1,0 +1,6 @@
+.env
+data/*
+.vscode
+*.code-workspace
+__pyachce__/*
+*.pyc
