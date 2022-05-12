@@ -9,28 +9,24 @@ import glob
 from chesscom import ChessCom
 
 
-GAMES_DIRECTORY = "data/games/{username}"
+USERNAME = sys.argv[1]
+GAMES_DIRECTORY = f"data/games/{USERNAME}"
 
-
-def get_games(username):
+def main():
     """
     Download games from chess.com
     """
-    chess = ChessCom(username=username)
+    chess = ChessCom(username=USERNAME)
     me = chess.get_user_info()
     print(json.dumps(me))
     stats = chess.get_stats()
-    # print(json.dumps(stats))
+    print(json.dumps(stats))
     games = chess.get_games_all()
-    # example_game = next(games)
-    # print(json.dumps(example_game))
 
     # write games to files
     for game in games:
-        chess.write_game_to_json(game=game, dir=f"{GAMES_DIRECTORY}")
-
-    return True
+        chess.write_game_to_json(game=game, dir=GAMES_DIRECTORY)
 
 
 if __name__ == "__main__":
-    sys.exit(get_games())
+    sys.exit(main())

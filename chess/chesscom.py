@@ -1,9 +1,13 @@
 """ Chess.com API class """
 from typing import Generator, List, Dict
 import json
+import logging
+import os
 
 import requests
 
+
+logging.basicConfig(level=logging.info)
 
 BASE_URL = "https://api.chess.com/pub"
 
@@ -55,6 +59,7 @@ class ChessCom:
         """
         url = f"{self.base_url}{self.player_endpoint}/games/archives"
         data = self._get(url=url)
+        logging.info(data["archives"])
         return data.get("archives")
 
     
@@ -75,12 +80,13 @@ class ChessCom:
         Get all chess games based on available archives.
         """
         archives = self.get_games_archives()
-        print(archives)
         for archive_url in archives:
+            logging.info(f"Downloading games: {archive_url}")
             games_in_month = self._get(url=archive_url)["games"]
             yield from games_in_month
 
-    def write_game_to_json(self, game, dir:str):
+
+    def write_game_to_json(self, game, game_directory:str):
         """
         Write the chess game to a JSON file
         """
@@ -88,5 +94,8 @@ class ChessCom:
         white_player = game["white"]["username"]
         black_player = game["black"]["username"]
         filename = f"{game_id}_{white_player}_vs_{black_player}.json"
-        with open(f"{dir}/{filename}", "w") as fp:
+        filepath = f"{game_directory}/{filename}"
+        logging.info(f"Writing game to file: {filename}")
+        with open(filepath, "w") as fp:
             json.dump(game, fp)
+        return filename
