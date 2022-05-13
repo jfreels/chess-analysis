@@ -52,7 +52,6 @@ class ChessCom:
         url = f"{self.base_url}{self.player_endpoint}/games"
         return self._get(url=url)
 
-
     def get_games_archives(self) -> List:
         """
         Get chess games archives data
@@ -71,9 +70,9 @@ class ChessCom:
         if len(str(month)) == 1:
             month = str(month).zfill(2)
         url = f"{self.base_url}{self.player_endpoint}/games/{year}/{month}"
+        logging.info("Downloading games: {url}")
         data = self._get(url=url)
         yield from data["games"]
-
 
     def get_games_all(self) -> Generator:
         """
@@ -84,7 +83,6 @@ class ChessCom:
             logging.info(f"Downloading games: {archive_url}")
             games_in_month = self._get(url=archive_url)["games"]
             yield from games_in_month
-
 
     def write_game_to_json(self, game, game_directory:str):
         """

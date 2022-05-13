@@ -6,7 +6,7 @@ import json
 import sys
 import glob
 
-from chesscom import ChessCom
+from chess.chesscom import ChessCom
 
 
 USERNAME = sys.argv[1]

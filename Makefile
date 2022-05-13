@@ -6,7 +6,7 @@ coverage:
 
 pyenv:
 	virtualenv -p python3 pyenv
-	pyenv/bin/pip install -r requirements.txt
+	pyenv/bin/pip install -e .[dev,prod]
 .PHONY: pyenv
 
 test:

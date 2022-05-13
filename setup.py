@@ -1,15 +1,13 @@
 """ Setup """
-from pip._internal.req import parse_requirements, PipSession
+import pathlib
+
+import pkg_resources
 from setuptools import setup, find_packages
 
-# parse_requirements() returns generator of pip.req.InstallRequirement objects
-install_reqs = parse_requirements(filename='requirements.txt', session=PipSession())
-install_reqs_dev = parse_requirements(filename='requirements_dev.txt', session=PipSession())
-
-# reqs is a list of requirements.txt
-# reqs_dev is a list of requirements_dev.txt
-reqs = install_reqs
-reqs_dev = install_reqs_dev
+with pathlib.Path("requirements.txt").open() as requirements_txt:
+    install_requires = [
+        str(requirement) for requirement in pkg_resources.parse_requirements(requirements_txt)
+    ]
 
 with open(file="README.md", mode="r", encoding="UTF-8") as fh:
     long_description = fh.read()
@@ -30,10 +28,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=[
-        reqs,
-        reqs_dev
-    ],
+    install_requires=install_requires,
     extras_require={
         "dev": [
             "setuptools",

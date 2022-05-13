@@ -1,7 +1,7 @@
 """ Tests for chess/chesscom.py """
-from chess import ChessCom
+from src.chess import ChessCom
 
-USERNAME = "jfreels"
+USERNAME = "jessieyikes"
 GAMES_URI = f"/player/{USERNAME}/games"
 
 def test_get_url():

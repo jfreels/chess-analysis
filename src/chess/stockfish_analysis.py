@@ -3,7 +3,7 @@ from typing import List
 
 from stockfish import Stockfish
 
-from pgn import Pgn
+from .pgn import Pgn
 
 
 sf = Stockfish()

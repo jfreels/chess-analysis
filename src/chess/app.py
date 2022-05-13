@@ -4,6 +4,7 @@ import os
 import streamlit as st
 
 from chesscom import ChessCom
+from downloaded_games import get_downloaded_games_metrics
 
 
 GAMES_ROOT = "data/games"
@@ -13,15 +14,9 @@ ANALYZED_GAMES_DIRECTORY = "data/games_analyzed/{username}"
 
 st.header("Chess Analyzer")
 st.subheader("Games Collected")
-file_metrics = []
-for (root, dirs, files) in os.walk(GAMES_ROOT, topdown=False):
-    if len(files) > 0:
-        file_metrics.append({
-            "directory": root,
-            "games": len(files)
-        })
 
-st.table(file_metrics)
+downloaded_games_metrics = get_downloaded_games_metrics()
+st.table(downloaded_games_metrics)
 
 st.subheader('Enter your Chess.com username to download your games')
 username = st.text_input('Chess.com Username')

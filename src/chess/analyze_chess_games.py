@@ -7,8 +7,8 @@ import sys
 import glob
 
 # from pgn import Pgn
-from pgntofen import PgnToFen
-from stockfish_analysis import StockfishAnalysis as sa
+from .pgntofen import PgnToFen
+from .stockfish_analysis import StockfishAnalysis as sa
 
 
 USERNAME = "jfreels"
