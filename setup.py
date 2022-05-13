@@ -21,8 +21,8 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jfreels",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(where="chess"),
+    package_dir={"": "chess"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

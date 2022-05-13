@@ -3,7 +3,7 @@ import re
 from typing import List
 
 # https://github.com/SindreSvendby/pgnToFen
-from .pgntofen import PgnToFen
+from pgntofen import PgnToFen
 
 
 def remove_clock_times_from_moves(moves_string:str) -> str:

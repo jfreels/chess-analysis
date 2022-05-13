@@ -3,8 +3,8 @@ import os
 
 import streamlit as st
 
-from chesscom import ChessCom
-from downloaded_games import get_downloaded_games_metrics
+from chess.chesscom import ChessCom
+from chess.downloaded_games import get_downloaded_games_metrics
 
 
 GAMES_ROOT = "data/games"

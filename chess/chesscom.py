@@ -2,12 +2,11 @@
 from typing import Generator, List, Dict
 import json
 import logging
-import os
 
 import requests
 
 
-logging.basicConfig(level=logging.info)
+logging.basicConfig(level="INFO")
 
 BASE_URL = "https://api.chess.com/pub"
 

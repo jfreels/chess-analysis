@@ -4,9 +4,8 @@ Main chess program
 
 import json
 import sys
-import glob
 
-from chess.chesscom import ChessCom
+from chesscom import ChessCom
 
 
 USERNAME = sys.argv[1]
@@ -25,7 +24,7 @@ def main():
 
     # write games to files
     for game in games:
-        chess.write_game_to_json(game=game, dir=GAMES_DIRECTORY)
+        chess.write_game_to_json(game=game, game_directory=GAMES_DIRECTORY)
 
 
 if __name__ == "__main__":

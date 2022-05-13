@@ -9,8 +9,8 @@ import json
 from jinja2 import Template
 from dotenv import dotenv_values
 
-from chess.pgn import Pgn
-from chess.stockfish_analysis import StockfishAnalysis
+from pgn import Pgn
+from stockfish_analysis import StockfishAnalysis
 
 
 CONFIG = dotenv_values(".env")

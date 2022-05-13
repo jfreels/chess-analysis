@@ -3,13 +3,13 @@ from typing import List
 
 from stockfish import Stockfish
 
-from .pgn import Pgn
+# from pgntofen import PgnToFen
 
 
 sf = Stockfish()
 
 class StockfishAnalysis:
-    def __init__(self, pgn:Pgn):
+    def __init__(self, pgn):
         self.pgn = pgn
         self.fen_positions = pgn.fen_positions
         self.analysis = []

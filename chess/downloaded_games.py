@@ -1,6 +1,5 @@
 import os
 
-import chess
 
 GAMES_ROOT = "data/games"
 
